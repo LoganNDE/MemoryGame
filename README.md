@@ -1,12 +1,54 @@
-# React + Vite
+# 🧠 MemoryGame
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🎮 Cómo funciona
 
-Currently, two official plugins are available:
+- Se genera un tablero con cartas mezcladas por duplicado.
+- El jugador puede levantar hasta dos cartas al mismo tiempo.
+- Si las dos cartas coinciden, permanecen visibles.
+- Si no coinciden, se giran de nuevo automáticamente.
+- El juego continúa hasta emparejar todas las cartas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tecnologías utilizadas
 
-## Expanding the ESLint configuration
+- **React 19** – Lógica de componentes y estado.
+- **Vite** – Entorno de desarrollo rápido.
+- **Tailwind CSS 4** – Estilos utilitarios y responsivos.
+- **js-confetti** – Efectos visuales al ganar.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📂 Estructura del proyecto
+
+```
+src/
+├── App.jsx          # Componente principal con la lógica del juego
+├── components/
+│   └── Card.jsx     # Representación visual de una carta
+├── logic.js         # Cartas disponibles y configuración inicial
+└── App.css          # Estilos base con Tailwind
+```
+
+## ▶️ Cómo ejecutar el proyecto
+
+1. Clona el repositorio y entra en la carpeta:
+
+```bash
+git clone https://github.com/tuusuario/05-memory-game.git
+cd 05-memory-game
+```
+
+2. Instala las dependencias:
+
+```bash
+npm install
+```
+
+3. Ejecuta el servidor de desarrollo:
+
+```bash
+npm run dev
+```
+
+4. Abre tu navegador en [http://localhost:5173](http://localhost:5173)
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
