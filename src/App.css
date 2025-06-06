@@ -1,0 +1,23 @@
+body{
+  background-color: #242424;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.board{
+  width: 800px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 40px;
+}
+
+
+@media(max-width: 768px){
+  .board{
+      width: 80%;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      justify-items: center;
+  }
+}
