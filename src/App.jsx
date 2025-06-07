@@ -20,6 +20,8 @@ function App() {
   const [pairsFounded, setPairsFounded] = useState([]);
   const [pairsDOM, setPairsDOM] = useState([]);
   const [winner, setWinner] = useState(false);
+  const [time, setTime] = useState(0);
+  const [game, setGame] = useState(false);
 
 
 
@@ -29,6 +31,8 @@ function App() {
     setCardPairs([])
     setPairsFounded([])
     setPairsDOM([])
+    setTime(0)
+    setGame(false)
     setWinner(false);
     const allCards = document.querySelectorAll('.flipEffect');
     allCards.forEach((card) => card.classList.remove('flipEffect'));
@@ -45,12 +49,24 @@ function App() {
   useEffect(() =>{
     if (cards.every((card) => card != null)){
       console.log("Tenemos ganador");
+      
+      
       setWinner(true);
       displayConfetti();
     }
   }, [cards])
-    
   
+
+  // Actualización de reloj
+  useEffect(() =>{
+    if (game && !winner){
+      setTimeout(() =>{
+        let newTime = time ?? 0;
+        newTime++
+        setTime(newTime)
+      }, 1000)
+    }
+  }, [time, game, winner])
   
   const refreshCrads = () =>{
     const newCards = [... cards];
@@ -119,7 +135,7 @@ function App() {
 
 
   const setCardUp = (index, event) =>{
-    if (countCardsUP < MAX_CARDS_UP && !winner){
+    if (countCardsUP < MAX_CARDS_UP && !winner && game){
 
       // Actualización del estado de las cartas
       if (cards[index] === null){
@@ -167,6 +183,8 @@ function App() {
             )
           })}
       </div>
+      {!game && <button onClick={() => setGame(true)}>Empezar</button>}
+      {game && <span>{time}</span>}
       {winner && <Popup textDisplay={"Enhorabuena has ganado"} textButton={"Volver a jugar"} actionButton={restGame}/>}
     </>
   )
