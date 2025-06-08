@@ -183,8 +183,8 @@ function App() {
             )
           })}
       </div>
-      {!game && <button onClick={() => setGame(true)}>Empezar</button>}
-      {game && <span>{time}</span>}
+      {!game && <button className="py-2 px-4 mt-5 rounded-lg hover:bg-gray-300 cursor-pointer bg-white" onClick={() => setGame(true)}>Empezar</button>}
+      {game && <span className="absolute bottom-10 right-10 w-10 h-10 bg-white flex justify-center items-center rounded-full">{time}</span>}
       {winner && <Popup textDisplay={"Enhorabuena has ganado"} textButton={"Volver a jugar"} actionButton={restGame}/>}
     </>
   )
